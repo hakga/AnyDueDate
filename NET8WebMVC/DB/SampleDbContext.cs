@@ -7,6 +7,6 @@ namespace NET8WebMVC.DB {
         public SampleDbContext(DbContextOptions options): base(options) {
         }
 
-        public DbSet<Domain.Entities.Member> Members { get; set; }
+        public DbSet<Domain.Entities.Member> Members { get; set; } = null!;
     }
 }

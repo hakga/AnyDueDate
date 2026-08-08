@@ -1,4 +1,5 @@
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
 using NET8WebMVC.DB;
 using NET8WebMVC.Domain.Repositories;
 using NET8WebMVC.Models;
@@ -8,10 +9,10 @@ namespace NET8WebMVC.Controllers {
     public class HomeController : Controller {
         private readonly SampleDbContext _context;
         private readonly ILogger<HomeController> _logger;
-        private readonly ILoaderMembers _loaderMembers;
+        private readonly IMemberReader _loaderMembers;
         private readonly IConfiguration _config;
 
-        public HomeController(ILogger<HomeController> logger, SampleDbContext context, ILoaderMembers loaderMembers, IConfiguration config) {
+        public HomeController(ILogger<HomeController> logger, SampleDbContext context, IMemberReader loaderMembers, IConfiguration config) {
             _logger = logger;
             _context = context;
             _loaderMembers = loaderMembers;
@@ -27,14 +28,14 @@ namespace NET8WebMVC.Controllers {
             return View();
         }
 
-        public IActionResult Sample(int? id) {
-            var member = _context.Members.FirstOrDefault();     // DBコンテキストだけDIなデータ読み出し
+        public async Task<IActionResult> Sample(int? id) {
+            var member = await _context.Members.FirstOrDefaultAsync();     // DBから1件取得（サンプル用）
             if (id != null) {
-            member =_context.Members.FirstOrDefault(r => r.Id == id);
+            member =await _context.Members.FirstOrDefaultAsync(r => r.Id == id);
             }
             return View(member);
         }
-        public IActionResult Samples() {
+        public async Task<IActionResult> Samples() {
             _logger.LogInformation("LogInformation.");
             var members = _loaderMembers.Load();        // 依存性注入済みのデータ読み出し
             return View(members);
