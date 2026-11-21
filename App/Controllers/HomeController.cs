@@ -1,11 +1,11 @@
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
-using NET8WebMVC.DB;
-using NET8WebMVC.Domain.Repositories;
-using NET8WebMVC.Models;
+using App.DB;
+using App.Domain.Repositories;
+using App.Models;
 using System.Diagnostics;
 
-namespace NET8WebMVC.Controllers {
+namespace App.Controllers {
     public class HomeController : Controller {
         private readonly SampleDbContext _context;
         private readonly ILogger<HomeController> _logger;
@@ -29,7 +29,7 @@ namespace NET8WebMVC.Controllers {
         }
 
         public async Task<IActionResult> Sample(int? id) {
-            var member = await _context.Members.FirstOrDefaultAsync();     // DB‚©‚ç1Œæ“¾iƒTƒ“ƒvƒ‹—pj
+            var member = await _context.Members.FirstOrDefaultAsync();     // DBï¿½ï¿½ï¿½ï¿½1ï¿½ï¿½ï¿½æ“¾ï¿½iï¿½Tï¿½ï¿½ï¿½vï¿½ï¿½ï¿½pï¿½j
             if (id != null) {
             member =await _context.Members.FirstOrDefaultAsync(r => r.Id == id);
             }
@@ -37,7 +37,7 @@ namespace NET8WebMVC.Controllers {
         }
         public async Task<IActionResult> Samples() {
             _logger.LogInformation("LogInformation.");
-            var members = _loaderMembers.Load();        // ˆË‘¶«’“üÏ‚İ‚Ìƒf[ƒ^“Ç‚İo‚µ
+            var members = _loaderMembers.Load();        // ï¿½Ë‘ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ï‚İ‚Ìƒfï¿½[ï¿½^ï¿½Ç‚İoï¿½ï¿½
             return View(members);
         }
 

@@ -2,6 +2,8 @@
 
   <PropertyGroup>
     <TargetFramework>net8.0</TargetFramework>
+    <AssemblyName>App</AssemblyName>
+    <RootNamespace>App</RootNamespace>
     <Nullable>enable</Nullable>
     <ImplicitUsings>enable</ImplicitUsings>
     <UserSecretsId>740acc39-d4a3-4fd9-91d1-0ca762fb88f4</UserSecretsId>

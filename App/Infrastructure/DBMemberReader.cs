@@ -1,10 +1,10 @@
-﻿using Microsoft.EntityFrameworkCore;
-using NET8WebMVC.DB;
-using NET8WebMVC.Domain.Repositories;
+using Microsoft.EntityFrameworkCore;
+using App.DB;
+using App.Domain.Repositories;
 using System.Collections.Generic;
 using System.Threading.Tasks;
 
-namespace NET8WebMVC.Infrastructure {
+namespace App.Infrastructure {
     public class DBMemberReader : IMemberReader {
         private readonly SampleDbContext _dbContext;
         public DBMemberReader(SampleDbContext context) {

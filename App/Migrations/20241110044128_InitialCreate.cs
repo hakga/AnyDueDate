@@ -1,8 +1,8 @@
-﻿using Microsoft.EntityFrameworkCore.Migrations;
+using Microsoft.EntityFrameworkCore.Migrations;
 
 #nullable disable
 
-namespace NET8WebMVC.Migrations
+namespace App.Migrations
 {
     /// <inheritdoc />
     public partial class InitialCreate : Migration
