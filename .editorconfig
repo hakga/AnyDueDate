@@ -1,0 +1,25 @@
+﻿root = true
+
+[App/**/*.cs]
+charset = utf-8-bom
+
+[App/**/*.cshtml]
+charset = utf-8-bom
+
+[App/**/*.css]
+charset = utf-8-bom
+
+[App/**/*.js]
+charset = utf-8-bom
+
+[App/obj/**]
+charset = unset
+
+[App/bin/**]
+charset = unset
+
+[App/wwwroot/lib/**]
+charset = unset
+
+[*.cs]
+csharp_new_line_before_open_brace = none
